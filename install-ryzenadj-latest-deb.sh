@@ -2,7 +2,7 @@
 
 RYZENADJ_LATEST=$(curl --silent "https://api.github.com/repos/FlyGoat/RyzenAdj/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")' | sed -E 's/v//')
 
-if [[ $RYZENADJ_LATEST = $(git describe --tags | sed -E 's/v//') ]] ; then
+if [[ $RYZENADJ_LATEST = $(git describe --tags | sed -E 's/v//') && -f ryzenadj-$RYZENADJ_LATEST.deb ]] ; then
     echo "RyzenAdj already up to date."
     exit
 fi

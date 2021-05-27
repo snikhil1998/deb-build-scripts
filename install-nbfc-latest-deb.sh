@@ -2,7 +2,7 @@
 
 NBFC_LATEST=$(curl --silent "https://api.github.com/repos/hirschmann/nbfc/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
 
-if [[ $NBFC_LATEST = $(git describe --tags) ]] ; then
+if [[ $NBFC_LATEST = $(git describe --tags) && -f nbfc-$NBFC_LATEST.deb ]] ; then
     echo "NBFC already up to date."
     exit
 fi
