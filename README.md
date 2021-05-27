@@ -4,4 +4,4 @@ Currently, only scripts for building NoteBook Fan Control (NBFC) and RyzenAdj ar
 
 # Usage
 
-When a repository is cloned, put the corresponding bash script in the clonedrepository and run the script. Incase the package should be built but not installed, comment the last line.
+When a repository is cloned, put the corresponding bash script in the cloned repository and run the script. Incase the package should be built but not installed, comment the last line.
