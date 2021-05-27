@@ -1,4 +1,4 @@
-This repository has bash scripts to automate building Debian packages from source codes of GitHub repositories.
+This repository has bash scripts to automate building Debian packages from source codes of GitHub repositories. Scripts are made only for the github repositories which do not have the Debian packages.
 
 Currently, only scripts for building NoteBook Fan Control (NBFC) and RyzenAdj are made.
 
