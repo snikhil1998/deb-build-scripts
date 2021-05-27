@@ -18,9 +18,9 @@ mkdir -p nbfc-$NBFC_LATEST/DEBIAN/ nbfc-$NBFC_LATEST/opt/nbfc/ nbfc-$NBFC_LATEST
 
 cp -r Linux/bin/Release/* nbfc-$NBFC_LATEST/opt/nbfc/
 cp Linux/nbfc.service Linux/nbfc-sleep.service nbfc-$NBFC_LATEST/etc/systemd/system/
-cp ~/Downloads/HP_OMEN_Laptop_15-en0xxx.xml nbfc-$NBFC_LATEST/opt/nbfc/Configs/
 
-#touch nbfc-$NBFC_LATEST/control nbfc-$NBFC_LATEST/postinst nbfc-$NBFC_LATEST/prerm nbfc-$NBFC_LATEST/postrm
+# Uncomment and edit the following line if custom configs are needed.
+#cp ~/Downloads/HP_OMEN_Laptop_15-en0xxx.xml nbfc-$NBFC_LATEST/opt/nbfc/Configs/
 
 cat <<EOF | tee nbfc-$NBFC_LATEST/DEBIAN/control
 Package: nbfc
@@ -46,12 +46,6 @@ cat <<EOF | tee nbfc-$NBFC_LATEST/DEBIAN/prerm
 systemctl disable nbfc
 systemctl stop nbfc
 EOF
-
-#cat <<EOF | tee nbfc-$NBFC_LATEST/DEBIAN/postrm
-##!/bin/bash
-
-#rm -rf /opt/nbfc/
-#EOF
 
 chmod 755 nbfc-$NBFC_LATEST/DEBIAN/postinst nbfc-$NBFC_LATEST/DEBIAN/prerm #nbfc-$NBFC_LATEST/DEBIAN/postrm
 
