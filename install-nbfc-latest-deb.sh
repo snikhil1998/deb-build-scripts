@@ -47,7 +47,13 @@ systemctl disable nbfc
 systemctl stop nbfc
 EOF
 
-chmod 755 nbfc-$NBFC_LATEST/DEBIAN/postinst nbfc-$NBFC_LATEST/DEBIAN/prerm #nbfc-$NBFC_LATEST/DEBIAN/postrm
+cat <<EOF | tee nbfc-$NBFC_LATEST/usr/bin/nbfc
+#!/bin/bash
+
+/usr/bin/mono /opt/nbfc/nbfc.exe \$*
+EOF
+
+chmod 755 nbfc-$NBFC_LATEST/DEBIAN/postinst nbfc-$NBFC_LATEST/DEBIAN/prerm nbfc-$NBFC_LATEST/usr/bin/nbfc
 
 dpkg-deb --build nbfc-$NBFC_LATEST/
 
